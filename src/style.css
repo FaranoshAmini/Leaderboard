@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 0.4rem;
+}
+
+.btn {
+  border: 1px solid #000;
+  padding: 0.4rem 0.8rem;
+  box-shadow: 0.15rem 0.15rem #000;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 900px;
+  max-width: 90%;
+  padding: 2rem;
+}
+
+.main .heading {
+  margin-bottom: 1rem;
+}
+
+.main-body {
+  display: flex;
+  gap: 2rem;
+}
+
+.section-recent-scores {
+  width: 50%;
+}
+
+.section-recent-scores .row1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-recent-scores .row2 {
+  margin: 0.5rem;
+  border: 1px solid #000;
+}
+
+.section-recent-scores .row2 ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-recent-scores .row2 ul li:nth-child(even) {
+  background-color: #d3d3d3;
+}
+
+.section-add-score {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.section-add-score .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-add-score .form input {
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
+.section-add-score .form .btn-submit {
+  align-self: flex-end;
+}
