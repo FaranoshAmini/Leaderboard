@@ -25,8 +25,19 @@ btnRefresh.addEventListener('click', () => {
   getScores();
 });
 
+const showMessage = (msg, status) => {
+  const displayMessage = document.querySelector('.message');
+  displayMessage.classList.add(status);
+  displayMessage.innerHTML = msg;
+
+  setTimeout(() => {
+    displayMessage.innerHTML = '';
+    displayMessage.classList.remove(status);
+  }, 2000);
+};
+
 const addScore = async (userName, userScore) => {
-  await fetch(requestedURL, {
+  const response = await fetch(requestedURL, {
     method: 'POST',
     body: JSON.stringify({
       user: userName,
@@ -35,8 +46,10 @@ const addScore = async (userName, userScore) => {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  })
-    .then((response) => response.json());
+  });
+
+  const data = await response.json();
+  showMessage(data.result, 'success');
 };
 
 btnSubmit.addEventListener('click', () => {
@@ -47,7 +60,11 @@ btnSubmit.addEventListener('click', () => {
   if (userName.value && userScore.value) {
     if (userScore.value.match(regex)) {
       addScore(userName.value, userScore.value);
+    } else {
+      showMessage('Score should be a number', 'error');
     }
+  } else {
+    showMessage('Input fields cannot be empty', 'error');
   }
   userName.value = '';
   userScore.value = '';
